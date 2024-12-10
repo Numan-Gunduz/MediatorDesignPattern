@@ -1,14 +1,15 @@
-﻿using MediatorDesignPattern.MediatorPattern.Queries;
+﻿using MediatorDesignPattern.MediatorPattern.Commands;
+using MediatorDesignPattern.MediatorPattern.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MediatorDesignPattern.Controllers
 {
-    public class Product : Controller
+    public class ProductController : Controller
     {
         private readonly IMediator _mediator;
 
-        public Product(IMediator mediator)
+        public ProductController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -23,6 +24,11 @@ namespace MediatorDesignPattern.Controllers
         {
             var values = await _mediator.Send(new GetProductByIdQuery(id));
             return View(values);
+        }
+        public async Task<IActionResult>DeleteProduct(int id )
+        {
+            await _mediator.Send(new RemoveProductCommand(id));
+            return RedirectToAction("Index");   
         }
     }
 }
