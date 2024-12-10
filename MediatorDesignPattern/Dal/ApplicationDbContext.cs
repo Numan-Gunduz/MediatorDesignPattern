@@ -2,8 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 
 
-namespace UrunYonetim.Data
-{
+
+
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -104,4 +104,3 @@ namespace UrunYonetim.Data
             }
         }
     }
-}
