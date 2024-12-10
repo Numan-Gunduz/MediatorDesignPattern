@@ -1,0 +1,46 @@
+﻿@model MediatorDesignPattern.MediatorPattern.Commands.CreateProductCommand
+
+@{
+    ViewData["Title"] = "Yeni Ürün Ekle";
+}
+
+<h2>Yeni Ürün Ekle</h2>
+
+<form method="post" asp-action="AddProducts">
+    <div class="form-group">
+        <label asp-for="ProductName">Ürün Adı</label>
+        <input asp-for="ProductName" class="form-control" placeholder="Ürün adını giriniz" />
+        <span asp-validation-for="ProductName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProductCategory">Kategori</label>
+        <input asp-for="ProductCategory" class="form-control" placeholder="Ürün kategorisini giriniz" />
+        <span asp-validation-for="ProductCategory" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProductStock">Stok Miktarı</label>
+        <input asp-for="ProductStock" type="number" class="form-control" placeholder="Stok miktarını giriniz" />
+        <span asp-validation-for="ProductStock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProductSTockType">Stok Türü</label>
+        <input asp-for="ProductSTockType" class="form-control" placeholder="Stok türünü giriniz" />
+        <span asp-validation-for="ProductSTockType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProductPrice">Fiyat</label>
+        <input asp-for="ProductPrice" type="number" step="0.01" class="form-control" placeholder="Ürün fiyatını giriniz" />
+        <span asp-validation-for="ProductPrice" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Ekle</button>
+    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

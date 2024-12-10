@@ -37,12 +37,24 @@ namespace MediatorDesignPattern.Controllers
             return View(values);
         }
 
-
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(UpdateProductCommand updateProductCommand)
         {
             await _mediator.Send(updateProductCommand);
          return RedirectToAction("Index");  
+        }
+        [HttpGet]
+        public IActionResult AddProducts()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddProducts(CreateProductCommand createProductCommand)
+        {
+            await _mediator.Send(createProductCommand);
+            return RedirectToAction("Index");
         }
     }
 }

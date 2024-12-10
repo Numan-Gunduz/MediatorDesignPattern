@@ -21,6 +21,10 @@ namespace MediatorDesignPattern.MediatorPattern.Handlers
                 ProductID = values.ProductID,
                 ProductName = values.ProductName,
                 ProductStock = values.ProductStock,
+                ProductPrice = values.ProductPrice,
+                ProductCategory = values.ProductCategory,
+                ProductSTockType = values.ProductSTockType 
+                
             };
         }
     }

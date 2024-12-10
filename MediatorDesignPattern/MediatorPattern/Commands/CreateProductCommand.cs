@@ -1,8 +1,10 @@
-﻿namespace MediatorDesignPattern.MediatorPattern.Results
+﻿using MediatR;
+
+namespace MediatorDesignPattern.MediatorPattern.Commands
 {
-    public class GetProductByIdQueryResult
+    public class CreateProductCommand:IRequest
     {
-        public int ProductID { get; set; }
+
         public string ProductName { get; set; }
         public int ProductStock { get; set; }
         public string ProductSTockType { get; set; }
