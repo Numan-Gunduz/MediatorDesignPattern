@@ -1,0 +1,33 @@
+﻿@model MediatorDesignPattern.MediatorPattern.Results.GetProductByIdQueryResult
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<h2>Ürün Detayları</h2>
+
+
+@if (Model != null)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <td>@Model.ProductID</td>
+        </tr>
+        <tr>
+            <th>ismi</th>
+            <td>@Model.ProductName</td>
+        </tr>
+        <tr>
+            <th>Ürün Stok Sayısı</th>
+            <td>@Model.ProductStock</td>
+        </tr>
+    </table>
+}
+else
+{
+    <p class="text-danger">Product not found.</p>
+}
+
+<a href="@Url.Action("Index", "Product")" class="btn btn-primary">Back to Products</a>

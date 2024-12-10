@@ -1,0 +1,39 @@
+﻿@using MediatorDesignPattern.MediatorPattern.Results
+@model List<GetAllProductQueryResult>
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br />
+    <br />
+<table class="table table-bordered">
+    <tr>
+        <td>#</td>
+        <td>Ürün Adı</td>
+        <td>Fiyatı</td>
+        <td>Stok Sayısı</td>
+        <td>Stok Türü</td>
+        <td>Kategori</td>
+        <td>Sil</td>
+        <td>Güncelle</td>
+        <td>Detaylar</td>
+      
+    </tr>
+    @foreach (var item in Model)
+    {
+      <tr>
+          <td>@item.ProductID</td>
+          <td>@item.ProductPrice</td>
+          <td>@item.ProductStock</td>
+          <td>@item.ProductSTockType</td>
+          <td>@item.ProductCategory</td>
+          <td> <a href="#" class="btn btn-outline-danger">Sil</a></td>
+          <td> <a href="#" class="btn btn-outline-success">Güncelle</a></td>
+          <td> <a href="/Product/GetProduct/@item.ProductID" class="btn btn-outline-dark">Detaylar</a></td>
+      </tr>
+    }
+</table>
+<td> <a href="#" class="btn btn-outline-info">Yeni Ürün Girişi</a></td>
+
+</div>

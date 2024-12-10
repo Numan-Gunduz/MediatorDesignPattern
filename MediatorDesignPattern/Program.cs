@@ -1,11 +1,14 @@
 
 using Microsoft.EntityFrameworkCore;
-using UrunYonetim.Data;
+using System.Reflection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly
+(Assembly.GetExecutingAssembly()));
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
