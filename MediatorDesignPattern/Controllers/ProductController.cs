@@ -30,6 +30,20 @@ namespace MediatorDesignPattern.Controllers
             await _mediator.Send(new RemoveProductCommand(id));
             return RedirectToAction("Index");   
         }
+        [HttpGet]
+        public async Task<IActionResult> UpdateProduct(int id) 
+        {
+          var values = await _mediator.Send(new GetProductUpdateByIdQuery(id));
+            return View(values);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateProduct(UpdateProductCommand updateProductCommand)
+        {
+            await _mediator.Send(updateProductCommand);
+         return RedirectToAction("Index");  
+        }
     }
 }
 /*
